@@ -6,7 +6,7 @@ services:
     ports:
       - 5433:5432
     volumes:
-      - ./postgres/data:/var/lib/postgresql/data/pgdata
+      - /root/postgres/data:/var/lib/postgresql/data/pgdata
     environment:
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
@@ -26,8 +26,8 @@ services:
     ports:
       - 8111:8111
     volumes:
-      - ./teamcity_server/data:/data/teamcity_server/datadir
-      - ./teamcity_server/logs:/opt/teamcity/logs
+      - /root/teamcity_server/data:/data/teamcity_server/datadir
+      - /root/teamcity_server/logs:/opt/teamcity/logs
     restart: unless-stopped
     networks:
       - teamcity-network
@@ -40,7 +40,7 @@ services:
     privileged: true
     user: root
     volumes:
-      - ./teamcity_agents/alpha/conf:/data/teamcity_agent/conf
+      - /root/teamcity_agents/alpha/conf:/data/teamcity_agent/conf
     environment:
       - SERVER_URL=pipeline-teamcity-server:8111
       - AGENT_NAME=alpha
@@ -56,9 +56,9 @@ services:
     privileged: true
     user: root
     volumes:
-      - ./sonarqube/data:/opt/sonarqube/data
-      - ./sonarqube/extensions:/opt/sonarqube/extensions
-      - ./sonarqube/logs:/opt/sonarqube/logs
+      - /root/sonarqube/data:/opt/sonarqube/data
+      - /root/sonarqube/extensions:/opt/sonarqube/extensions
+      - /root/sonarqube/logs:/opt/sonarqube/logs
     environment:
       - SONARQUBE_JDBC_URL=jdbc:postgresql://db/sonar
       - SONARQUBE_JDBC_USERNAME=${POSTGRES_USER}
