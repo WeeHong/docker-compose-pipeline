@@ -1,4 +1,4 @@
-# CI/CD Pipeline
+# [ Learning ] - CI/CD Pipeline
 This is a CI/CD Pipeline that built by using TeamCity.
 The purpose of the CI/CD Pipeline is to publish the .NET application and push to remote server
 
