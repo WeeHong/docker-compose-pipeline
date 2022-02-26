@@ -16,7 +16,7 @@ docker-compose -p "teamcity-bundle" down
 ## Pre-requisite
 1. .NET Core installed
 
-## Technology Stack(?)
+## Technology Stack
 - TeamCity Agent
 - Postgres
 - SonarQube
